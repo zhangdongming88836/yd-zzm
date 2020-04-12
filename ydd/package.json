@@ -10,8 +10,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "mint-ui": "^2.2.13",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-awesome-mui": "^1.7.3",
+    "vue-router": "^3.0.1",
+    "vue-touch": "^2.0.0-beta.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
