@@ -81,6 +81,17 @@ methods:{
     
   }
 },
+beforeRouteEnter(to,from,next){
+  console.log(`进入index`);
+   next();
+},
+beforeRouteLeave(to,from,next){
+  console.log(`离开index`);
+  if(to.name=="Search"){
+    to.meta.keepAlive=false;
+  }
+   next();
+},
 components:{first,shop,cart,mine,tabbaricon,}
 }
 </script>

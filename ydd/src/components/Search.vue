@@ -19,15 +19,16 @@
         <!--搜索如下-->
           <div style="height:50px;"></div>
           <div style="margin-top:50px;widght:100%;border-top:1px solid #dddddd;">
-           <div class="Search4">
+             <router-link to="/details" class="Search4">
              <div class="Search4-1">
                  <img src="../assets/15411179001281516724.png" alt="" style="width:100px;">
              </div>
              <div class="Search4-2">
-                 <p>珍珠发酵精华面膜</p>
-                 <p style="color:#ffb7dd;margin-top:3px;">￥ 238</p>
+                  
+                 <p style="color:#aaaaaa;">珍珠发酵精华面膜</p>
+                 <p style="color:#ffb7dd;margin-top:5px;">￥ 238</p>
              </div>
-           </div>
+             </router-link>
           </div>
         <!--搜索如下结束-->
     </div>
@@ -38,7 +39,17 @@ export default {
      back(){
          this.$router.go(-1)
      }
-  }  
+  },
+  beforeRouteEnter(to,from,next){
+  console.log(`进入搜索`);
+   next();
+},  
+  beforeRouteLeave(to,from,next){
+    if(to.name=="details"){
+      from.meta.keepAlive=true;
+    }
+   next();
+},
 }
 </script>
 <style scoped>

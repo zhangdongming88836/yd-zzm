@@ -6,8 +6,12 @@ Vue.use(Router)
 
  const router= new Router({
   routes: [
-      {path:"/",component:guide},
-      {path:"/index",component:index},
+      {path:"/",component:guide,},
+      {path:"/index",component:index,
+      meta:{
+        keepAlive:true
+      }
+    },
       {path:"/aboutUs",
       component:()=>import(/*webpackChunkName:"aboutUs"*/ "../views/aboutUs.vue")},
       {path:"/user",
@@ -17,7 +21,13 @@ Vue.use(Router)
       {path:"/signLn",
       component:()=>import(/*webpackChunkName:"signLn" */ "../components/signLn.vue")},
       {path:"/Search",
-      component:()=>import(/*webpackChunkName:"Search" */ "../components/Search.vue")},
+      component:()=>import(/*webpackChunkName:"Search" */ "../components/Search.vue"),
+      meta:{
+        keepAlive:false 
+      }
+    },
+    {path:"/details",
+     component:()=>import(/*webpackChunkName:"details" */ "../components/details.vue"), } 
   ],
 })
 router.afterEach((to, from) => {
