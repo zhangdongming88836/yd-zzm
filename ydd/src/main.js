@@ -6,7 +6,11 @@ import router from './router'
 import vuetouch from "vue-touch"
 import mintui from "mint-ui"
 import "mint-ui/lib/style.css"
-import mui from 'vue-awesome-mui';
+import mui from 'vue-awesome-mui'
+import axios from "axios"
+axios.defaults.baseURL="http://127.0.0.1:4000/"
+axios.defaults.withCredentials=true
+Vue.prototype.axios=axios;
 Vue.use(mui);
 Vue.use(mintui);
 Vue.use(vuetouch,{name:"v-touch"})

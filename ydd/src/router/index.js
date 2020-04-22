@@ -26,9 +26,12 @@ Vue.use(Router)
         keepAlive:false 
       }
     },
-    {path:"/details",
-     component:()=>import(/*webpackChunkName:"details" */ "../components/details.vue"), } 
-  ],
+    {path:"/details/:tid",
+     props:true,
+     component:()=>import(/*webpackChunkName:"details" */ "../components/details.vue")}, 
+     {path:"/cart1",
+    component:()=>import(/*webpackChunkName:"cart1"*/ "../components/cart1.vue")},
+  ]
 })
 router.afterEach((to, from) => {
   window.scrollTo(0, 0)

@@ -12,11 +12,11 @@
              </div>
                <div class="select2-2">
                  <div>
-                   <img src="../assets/15411179001281516724.png" alt="" style="width:100px">
+                   <img :src="'http://127.0.0.1:4000/'+product.pic"  alt="" style="width:100px">
                  </div>
                  <div>
-                   <p style="margin-top:20px;color:#ffb6c1">￥ 178.00</p>
-                   <p style="margin-top:10px;font-size:15px;color:#aaaaaa;">益生菌固体饮料</p>
+                   <p style="margin-top:20px;color:#ffb6c1">￥ {{product.price}}</p>
+                   <p style="margin-top:10px;font-size:15px;color:#aaaaaa;">{{product.title}}</p>
                  </div>
                </div>
                <div class="select2-3">
@@ -36,11 +36,11 @@
                  </div>
               </div>
               <div class="select2-3-3">
-                <div style="background:#dddddd;width:50%;display:flex;justify-content:center;height:30px;"> 
+                <div style="background:#dddddd;width:50%;display:flex;justify-content:center;height:30px;" @click="vb"> 
                   <p style="line-height:30px;color:#aaaaaa;">加入购物车</p>
                 </div>
-                <div style="background:rgba(255,182,193,0.6); width:50%; display:flex;justify-content:center;height:30px;">
-                  <p style="line-height:30px;color:#aaaaaa;">立即购物车</p>
+                <div style="background:rgba(255,182,193,0.6); width:50%; display:flex;justify-content:center;height:30px;" @click="va">
+                  <p style="line-height:30px;color:#aaaaaa;">立即购买</p>
                 </div>
               </div>
            </div>
@@ -64,13 +64,13 @@
     <div class="handover" :style="mc">
      <div class="details">
         <div style="width:100%;overflow:hidden; ">
-          <img src="../assets/15722485981570234231.jpg" alt="" style="width:100%;">
+          <img :src="'http://127.0.0.1:4000/'+product.pic"  alt="图片" style="width:100%;"/>
         </div>
         <div class="details1">
-          <p style="margin-left:30px;">￥ 198</p>
+          <p style="margin-left:30px;">￥ {{product.price}}</p>
         </div>
         <div class="details2">
-          <p style="margin-left:30px;">泡泡洗面奶</p>
+          <p style="margin-left:30px;">{{product.title}}</p>
         </div>
       </div>
       <div class="details3" >
@@ -93,21 +93,21 @@
       <div style="height:50px"></div>
     <!--底部-->
     <div class="foot">
-      <div class="foot5">
-     <div class="foot1">
-       <img src="../assets/icon_kefu_new.png" alt="" style="width:25px;">
-       <p style="color:#aaaaaa;font-size:12px;">客服</p>
-     </div>
-     <div class="foot2">
-       <img src="../assets/shop_1.png" alt="" style="width:25px;">
-       <p style="color:#aaaaaa;font-size:12px;">购物袋</p>
-     </div>
+    <div class="foot5">
+     <div class="foot1" >
+      <img src="../assets/icon_kefu_new.png" alt="" style="width:25px;">
+      <p style="color:#aaaaaa;font-size:12px;">客服</p>
+       </div>
+      <div class="foot2" @click="vd">
+      <img src="../assets/shop_1.png" alt="" style="width:25px;">
+      <p style="color:#aaaaaa;font-size:12px;">购物袋</p>
+      </div>
      </div>
      <div class="foot5">
-     <div class="foot3" style="background:#dddddd;">
-       <p style="color:#aaaaaa;font-size:15px;">加入购物车</p>
+     <div class="foot3" style="background:#dddddd;" @click="vc(product.tid,product.title,product.price,product.pic)">
+       <p style="color:#aaaaaa;font-size:15px;">加入购物袋</p>
      </div>
-     <div class="foot4" style="background:rgba(255,182,193,0.6);">
+     <div class="foot4" style="background:rgba(255,182,193,0.6);" @click="fp">
        <p style="color:#aaaaaa;font-size:15px;">立即购买</p>
      </div>
      </div>
@@ -124,7 +124,17 @@ export default {
       ma:"",
       mz:"color:#ffb6c1",
       mn:"color:#aaaaaa",
+      product:{},
     }
+  },
+  created(){
+    this.axios.get("details",{
+      params:{
+      tid:this.tid
+    }}).then(res=>{
+       this.product= res.data.data[0]
+       console.log(this.product);
+    })
   },
     methods:{
         back(){
@@ -135,6 +145,47 @@ export default {
         },
         fb(){
           this.mnm=false;
+        },
+        vd(){
+          this.$router.push("/cart1")
+        },
+        vb(){
+         this.mnm=false; 
+            this.$toast({
+        message:"加入购物袋成功",
+        position:"bottom"
+      })},
+         vc(gid,lname,price,pic){
+           console.log(1);
+           console.log(gid+"_"+lname+"_"+price+"_"+pic);
+
+           //功能：将我们商品信息添加至购物车
+           //1.创建变量url保存请求服务器地址
+           var url="cart1";
+           //2.创建变量obj请求数据 gid lname price pic
+           var obj={gid,lname,price,pic};
+           //3.发送ajax请求
+           this.axios.get(url,{params:obj}).then(res=>{
+             if(res.data.code==-2){
+               this.$toast("请登录");
+               this.$router.push("/user");
+             }else{
+               console.log(obj);
+               this.$toast("添加成功")
+             }
+           })
+           //4.接受服务器返回数据
+           //5.判断code==-1提示请登录 跳转/登录页面
+           //6.判断code==1 提示添加成功
+        },
+         fp(){
+          this.mnm=true;
+        },
+        va(){
+        this.$toast({
+        message:"正在建设,敬请期待",
+        position:"bottom"
+      })
         },
         fs(){
          if(this.mz!==""){
@@ -163,7 +214,8 @@ beforeRouteEnter(to,from,next){
         to.meta.keepAlive=true;
     }
     next();
-  }    
+  },
+  props:["tid"]    
 }
 </script>
 <style scoped>

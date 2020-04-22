@@ -20,7 +20,7 @@
          </div>
          <div style="width:80%;">
            <form>
-             <input type="text" v-model="aab"  placeholder="手机号码"  class="users1" v-focus style="caret-color:#ffb7dd;"  >
+             <input type="text" v-model="aab"  placeholder="用户名"  class="users1" v-focus style="caret-color:#ffb7dd;"  >
             </form>
          </div>
          <div style="width:10%;">
@@ -80,7 +80,7 @@
        </div>
        <!--快速登录结束--> 
        <!--登录-->
-         <div class="enter">
+         <div class="enter" @click="login">
            <span style="color:#fff">登录</span>
          </div>
        <!--登录结束-->
@@ -134,12 +134,49 @@ export default {
     },
     fq(){
       this.aab=""
+      this.eec=""
     },
     nun(){
       this.nuu=true;
     },
      unn(){
        this.nuu=false;
+     },
+     login(){
+       //功能：完成用户登录
+       //1.创建正则表达式用于验证用户名和密码
+       var reg=/^[a-z0-9]{3,12}$/i;
+       //2：获取用户名和密码
+       var u=this.aab;
+       var p=this.eec;
+       console.log(u+"_"+p);
+       //3：验证用户名如果格式不正确，提示错误信息
+       if(!reg.test(u)){
+         this.$messagebox("消息","用户名格式3-12位");
+         return;//停止程序运行
+       }
+      // 4：验证用户密码如果格式不正确，提示错误信息
+      if(!reg.test(p)){
+        this.$messagebox("消息","密码格式3-12位");
+        return;//停止程序运行
+      }
+      console.log(3);
+      // 5：创建url变量，保存请求服务器地址
+      var url="user";
+      // 6：创建obj变量，保存请求是的参数
+      var obj={uname:u,upwd:p};
+     //  7：发送ajax请求
+     this.axios.get(url,{params:obj}).then(res=>{
+         // 8：接受服务器返回结果
+         // 9：如果-1 提示用户名和密码有误
+        // 10：如果1 跳转商品列表地
+       if(res.data.code==-1){
+         this.$messagebox("消息","用户名或密码有误");
+       }else{
+         this.$toast("登录成功");
+         this.$router.go(-1);
+       }
+     })
      },
 
   },

@@ -5,7 +5,7 @@
           <img src="../assets/icon_back_arrow.png" alt="" style="width:10px" >
      </div> 
        <div class="right-head1">
-         <h4 >注册账号 (1/2)</h4>
+         <h4 style="margin-left:15%;">注册账号</h4>
        </div>
        <div class="right-head2">
      </div>
@@ -15,7 +15,7 @@
       <div class="users">
          <div style="width:80%; ">
            <form>
-             <input type="text"   placeholder="手机号码"  class="users1" v-focus style="caret-color:#ffb7dd;margin-left:10px;" :disabled="!isAgree" >
+             <input type="text"   placeholder="账号"  class="users1" v-focus style="caret-color:#ffb7dd;margin-left:10px;" :disabled="!isAgree" >
             </form>
          </div>
          <div style="width:10%;">
@@ -26,13 +26,13 @@
          <div class="users">
          <div style="width:60%;">
            <form>
-             <input type="password" placeholder="短信验证码"  class="users1"  style="caret-color:#ffb7dd;margin-left:10px;"  :disabled="!isAgree">
+             <input type="password" placeholder="密码"  class="users1"  style="caret-color:#ffb7dd;margin-left:10px;"  :disabled="!isAgree">
            </form>
          </div>
          <div class="users2">
-           <div class="note">
+         <!--  <div class="note">
              <span style="color:#fff;font-size:8px;">获取验证码</span>
-           </div>
+           </div> -->
          </div>
        </div>
         <!--登录-->

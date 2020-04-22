@@ -20,26 +20,42 @@
      <div style="height:50px"></div>
      <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[23].href">
          <img src="../assets/15852868031038197663.jpg" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">雪梨花固体饮料</p>
+         </router-link>
+         <router-link :to="list[23].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[23].title}}</p>
+         </router-link>
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 178</p>
+             <router-link :to="list[23].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[23].price}}</p>
+             </router-link>
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link>
            </div>
          </div>
        </div>
        <div class="Shops2">
+         <router-link :to="list[17].href">
          <img src="../assets/15843426861902871146.jpg" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">防晒亮白BB霜</p>
+         </router-link>
+           <router-link :to="list[17].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[17].title}}</p>
+         </router-link>
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 238</p>
+             <router-link :to="list[17].href">
+             <p style="font-size:12px;color:#ffb7dd">￥{{list[17].price}}</p>
+             </router-link>
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link>
            </div>
          </div>
        </div>
@@ -47,26 +63,42 @@
      <!--列表2-->
       <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[0].href">
          <img src="../assets/15758636001699226929.jpg" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">丝滑滋养发膜</p>
+         </router-link>
+          <router-link :to="list[0].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[0].title}}</p>
+         </router-link>
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 138</p>
+             <router-link :to="list[0].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[0].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
        <div class="Shops2">
+         <router-link :to="list[18].href">
          <img src="../assets/1573795635649726637.jpg" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">精魅自动眉笔</p>
+         </router-link >
+           <router-link :to="list[18].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[18].title}}</p>
+         </router-link>
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 168</p>
+             <router-link :to="list[18].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[18].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
@@ -75,26 +107,42 @@
      <!--列表3-->
       <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[19].href">
          <img src="../assets/15693070211200559225.jpg" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">丝柔臻颜妆前乳</p>
+         </router-link>
+           <router-link :to="list[19].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[19].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 188</p>
+             <router-link :to="list[19].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[19].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
        <div class="Shops2">
+         <router-link :to="list[1].href">
          <img src="../assets/15651665801692785803.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">肌源修护紧致眼霜</p>
+         </router-link >
+           <router-link :to="list[1].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[1].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 298</p>
+             <router-link :to="list[1].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[1].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
@@ -103,26 +151,42 @@
      <!--列表4-->
        <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[28].href">
          <img src="../assets/1565159099316436981.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">真珠美学珍珠发酵精华水</p>
+         </router-link >
+           <router-link :to="list[28].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[28].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 208</p>
+             <router-link :to="list[28].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[28].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
        <div class="Shops2">
+         <router-link :to="list[29].href">
          <img src="../assets/1565159191557405035.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">真珠美学珍珠发酵精华乳</p>
+         </router-link >
+           <router-link :to="list[29].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[29].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 208</p>
+             <router-link :to="list[29].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[29].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
@@ -131,26 +195,42 @@
      <!--列表5-->
       <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[30].href">
          <img src="../assets/15722485981570234231.jpg" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">泡泡洗面奶</p>
+         </router-link >
+           <router-link :to="list[30].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[30].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 198</p>
+             <router-link :to="list[30].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[30].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link>
            </div>
          </div>
        </div>
        <div class="Shops2">
+         <router-link :to="list[2].href">
          <img src="../assets/15550689821472832976.jpg" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">焕活肌底精华液</p>
+         </router-link >
+           <router-link :to="list[2].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[2].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 298</p>
+             <router-link :to="list[2].href">
+             <p style="font-size:12px;color:#ffb7dd">￥{{list[2].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
@@ -159,26 +239,42 @@
      <!--列表6-->
       <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[3].href">
          <img src="../assets/1578637780127749207.jpg" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">水润多效保湿面霜</p>
+         </router-link >
+           <router-link :to="list[3].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[3].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 238</p>
+             <router-link :to="list[3].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[3].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
        <div class="Shops2">
+         <router-link :to="list[4].href">
          <img src="../assets/1541117946399220390.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">真珠美学玫瑰润泽保湿舒缓面膜</p>
+         </router-link >
+           <router-link :to="list[4].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[4].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 238</p>
+             <router-link :to="list[4].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[4].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
@@ -187,26 +283,42 @@
      <!--列表7-->
       <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[5].href">
          <img src="../assets/15411180311026184492 (1).png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">樱花珍珠凝霜</p>
+         </router-link >
+           <router-link :to="list[5].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[5].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 238</p>
+             <router-link :to="list[5].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[5].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
        <div class="Shops2">
+         <router-link :to="list[6].href">
          <img src="../assets/1541118003510743980.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">晶樱美颜粉</p>
+         </router-link >
+           <router-link :to="list[6].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[6].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 238</p>
+             <router-link :to="list[6].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[6].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
@@ -215,26 +327,42 @@
      <!--列表8-->
      <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[7].href">
          <img src="../assets/15415104431149175815.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">亮采焕颜洁面扑</p>
+         </router-link >
+           <router-link :to="list[7].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[7].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 138</p>
+             <router-link :to="list[7].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[7].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
        <div class="Shops2">
+         <router-link :to="list[8].href">
          <img src="../assets/15411568791775390500.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">澳洲洁面精华露</p>
+         </router-link >
+           <router-link :to="list[8].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[8].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 238</p>
+             <router-link :to="list[8].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[8].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
@@ -243,26 +371,42 @@
      <!--列表9-->
      <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[9].href">
          <img src="../assets/15411567771409460016.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">澳洲修护精华液</p>
+         </router-link >
+           <router-link :to="list[9].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[9].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 238</p>
+             <router-link :to="list[9].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[9].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
        <div class="Shops2">
+         <router-link :to="list[10].href">
          <img src="../assets/15415104541662165406.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">多效保湿精华油</p>
+         </router-link >
+           <router-link :to="list[10].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[10].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 238</p>
+             <router-link :to="list[10].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[10].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
@@ -271,26 +415,42 @@
       <!--列表10-->
      <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[11].href">
          <img src="../assets/15411179051830899719.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">积雪草保湿喷雾</p>
+         </router-link>
+           <router-link :to="list[11].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[11].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 198</p>
+             <router-link :to="list[11].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[11].price}}</p>
+             </router-link>
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
        <div class="Shops2">
+         <router-link :to="list[12].href">
          <img src="../assets/15411179001281516724.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">珍珠发酵精华面膜</p>
+         </router-link >
+           <router-link :to="list[12].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[12].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 198</p>
+             <router-link :to="list[12].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[12].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
@@ -299,26 +459,42 @@
        <!--列表11-->
      <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[13].href">
          <img src="../assets/15411179901860669418.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">真珠美学发酵精华金箔面膜</p>
+         </router-link >
+           <router-link :to="list[13].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[13].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 238</p>
+             <router-link :to="list[13].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[13].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
        <div class="Shops2">
+         <router-link :to="list[14].href">
          <img src="../assets/1545038502908442228.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">花蜜私语护手霜礼盒</p>
+         </router-link >
+           <router-link :to="list[14].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[14].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 148</p>
+             <router-link :to="list[14].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[14].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
@@ -327,26 +503,42 @@
       <!--列表12-->
      <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[24].href">
          <img src="../assets/15423645072142557246.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">茶树花绿茶果味饮料</p>
+         </router-link >
+           <router-link :to="list[24].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[24].title}}</p>
+         </router-link>
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 368</p>
+             <router-link :to="list[24].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[24].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
        <div class="Shops2">
+         <router-link :to="list[25].href">
          <img src="../assets/15410576811917950346.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">石榴红藜果蔬饮料</p>
+         </router-link >
+           <router-link :to="list[25].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[25].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 288</p>
+             <router-link :to="list[25].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[25].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
@@ -355,26 +547,42 @@
        <!--列表13-->
      <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[26].href">
          <img src="../assets/15410502921739947519.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">胶原蛋白果味饮料</p>
+         </router-link >
+           <router-link :to="list[26].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[26].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 258</p>
+             <router-link :to="list[26].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[26].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
        <div class="Shops2">
+         <router-link :to="list[27].href">
          <img src="../assets/15410576862013265770.png" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">莓蔬发酵饮料</p>
+         </router-link >
+           <router-link :to="list[27].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[27].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 288</p>
+             <router-link :to="list[27].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[27].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
@@ -383,14 +591,22 @@
        <!--列表14-->
      <div class="Shops">
        <div class="Shops1">
+         <router-link :to="list[15].href">
          <img src="../assets/15633453561768467389.jpg" alt="" style="width:100%">
-         <p style="font-size:12px;color:#aaaaaa">柔滑细嫩身体磨砂膏</p>
+         </router-link >
+           <router-link :to="list[15].href">
+         <p style="font-size:12px;color:#aaaaaa">{{list[15].title}}</p>
+         </router-link >
          <div class="Shops1_1">
            <div style="width:40%;">
-             <p style="font-size:12px;color:#ffb7dd">￥ 178</p>
+             <router-link :to="list[15].href">
+             <p style="font-size:12px;color:#ffb7dd">￥ {{list[15].price}}</p>
+             </router-link >
            </div>
            <div style="width:40%;">
+             <router-link to="">
              <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             </router-link >
            </div>
          </div>
        </div>
@@ -406,7 +622,41 @@
 </template>
 <script>
 export default {
-    
+    data(){
+      return{
+        list:[],
+      }
+    },
+    created(){
+      this.loadMore();
+    },
+    methods:{
+      loadMore(){
+        //功能：发送ajax请求获取服务器返回商品列表
+        //并且把数据保存data list:[]
+        //1.创建url变量保存请求地址
+        var url="index";
+        //2.创建变量obj 请求服务器参数就是页数pno pageSize没有可以不写
+        //var obj={pno:1,pageSize:4};
+        //.发送ajax get请求
+        this.axios.get(url).then(res=>{
+              //4.获取服务器端返回商品列表数据
+              this.list=res.data.data;
+             //5.在data添加属性list保存商品
+            //6.将返回数据保存list结束
+        })
+       /* this.axios.get(url,{params:obj}).then(res=>{
+              //4.获取服务器端返回商品列表数据
+              this.list=res.data.data;
+              //分页的结果
+              var rows=this.list.const(res.data.data);
+              this.list=rows;
+             //5.在data添加属性list保存商品
+            //6.将返回数据保存list结束
+        })*/
+      
+      }
+    },
 }
 </script>
 <style scoped>
