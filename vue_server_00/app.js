@@ -53,7 +53,6 @@ server.get("/user",(req,res)=>{
       }else{
            req.session.uid=result[0].id;
            req.session.uname=result[0].uname;
-           console.log(req.session.uid);
           res.send({code:1,msg:"登录成功"})
       }  
     });
@@ -74,7 +73,6 @@ var sql="select lid,title,price,href from zzm_laptop";//var sql="select lid,titl
 //5.执行SQL语句并且将结果发送脚手架
 pool.query(sql,(err,result)=>{
     if(err)throw err;
-    console.log(result);
     res.send({code:1,msg:"查询成功",data:result})
 })
 })
@@ -99,7 +97,6 @@ server.get("/details",(req,res)=>{
  server.get("/cart1",(req,res)=>{
      //1.获取当前登录用户的凭证
      var uid=req.session.uid
-     console.log(uid);
      //2.如果没有登录凭证 输出请登录
      if(!uid){
          res.send({code:-2,msg:"请登录"});
@@ -110,6 +107,7 @@ server.get("/details",(req,res)=>{
      var lname=req.query.lname;
      var price=req.query.price;
      var pic=req.query.pic;
+     var count=req.query.count;
      //4.创建sql语句 查询当前用户是否购买过此商品
      var sql="select id from zzm_cart where uid=? and gid=?";
      //5.执行SQL语句
@@ -119,10 +117,10 @@ server.get("/details",(req,res)=>{
      //7.获取查询结果【判断是否购买过此商品】
      if(result.length==0){
      //8.如果没买过此商品 创建 insert sql
-     var sql=`insert into zzm_cart values(null,${gid},'${lname}',${price},'${pic}',1,${uid})`;
+     var sql=`insert into zzm_cart values(null,${gid},'${lname}',${price},'${pic}',${count},${uid})`;
      }else{
      //9.如果买过此商品 创建 update sql
-     var sql=`update zzm_cart set count=count+1 where uid=${uid} and gid=${gid}`;
+     var sql=`update zzm_cart set count=count+${count} where uid=${uid} and gid=${gid}`;
      }
      //10.执行sql
      pool.query(sql,(err,result)=>{
@@ -132,5 +130,102 @@ server.get("/details",(req,res)=>{
      //11.返回结果给脚手架
     })
  })
-
-    
+//功能5：查询指定用户购物车数据表
+server.get("/cart",(req,res)=>{
+    //1.获取用户登录的凭证uid
+    var uid=req.session.uid;
+    //2.没有uid表示此用户没登录 发送请登录信息
+    if(!uid){
+        res.send({code:-2,msg:"请登录",data:[]});
+        return;
+    }
+    //3.创建SQL语句
+    var sql="select id,gid,lname,price,count,pic from zzm_cart where uid=?";
+    //4.发送sql语句并且查询结果返回脚手架 
+    pool.query(sql,[uid],(err,result)=>{
+        if(err)throw err;
+        res.send({code:1,msg:"查询成功",data:result});
+    })
+})
+//6:删除购物袋中的一条商品的信息
+ server.get("/del",(req,res)=>{
+     //1.获取用户登录凭证
+     var uid=req.session.uid;
+     //2.如果没有登录凭证 请登录
+     if(!uid){
+         res.send({code:-2,msg:"请登录"});
+         return;
+     }
+     //3.获取脚手架传递数据id
+     var id=req.query.id;
+     //4.常见sql一句ID删除数据
+     var sql="delete from zzm_cart where id=? and uid=?";
+     //5.执行sql语句获取返回结果
+     pool.query(sql,[id,uid],(err,result)=>{
+         if(err)throw err;
+         if(result.affectedRows>0){
+             res.send({code:1,msg:"删除成功"});
+         }else{
+             res.send({code:-1,msg:"删除失败"});
+         }
+     })
+     //6.将结果返回脚手架
+ })  
+ //7:删除用户指定的商品
+ server.get("/delm",(req,res)=>{
+ //1.接受请求 /delm
+ //2.获取用户登录凭证
+ var uid=req.session.uid;
+ //3.请登录
+ if(!uid){
+     res.send({code:-2,msg:"请登录"});
+     return;
+ }
+ //4.接受参数 id=“2，3”
+ var id=req.query.id;
+ //5.创建sql语句执行删除多条记录功能
+ var sql=`delete from zzm_cart where id in (${id})`;
+ //6.判断是否删除多条记录功能
+ pool.query(sql,(err,result)=>{
+     if(err) throw err;
+     if(result.affectedRows>0){
+         res.send({code:1,msg:"删除成功"})
+     }else{
+         res.send({code:-1,msg:"删除失败"})
+     }
+ })
+ })
+//8.功能注册用户密码
+server.get("/register",(req,res)=>{
+    var u=req.query.uname;
+    var p=req.query.upwd;
+    var sql="insert into zzm_login values(null,?,md5(?))";
+    pool.query(sql,[u,p],(err,result)=>{
+        if(err)throw err;
+        if(result.affectedRows>0){
+            res.send({code:1,msg:"注册成功"})
+        }else{
+            res.send({code:-1,msg:"注册失败"})
+        }
+    })
+})
+//9.功能用户登录凭证
+server.get("/mine",(req,res)=>{
+     var uname=req.session.uname;
+     console.log(uname);
+     if(!uname){
+         res.send({code:-2,msg:"请登录"});
+         return;
+     }else{
+     res.send({code:1,msg:"成功",data:uname});
+     }
+})
+//10:功能搜索商品
+server.get("/search",(req,res)=>{
+    var u=req.query.title;
+    var sql=`select * from zzm_details where title like '%${u}%'`;
+    pool.query(sql,(err,result)=>{
+        if(err)throw err;
+        res.send({code:1,msg:"查询成功",data:result});
+    })
+})

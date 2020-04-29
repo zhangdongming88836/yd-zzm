@@ -33,8 +33,8 @@
              </router-link>
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[23].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link>
            </div>
          </div>
@@ -53,8 +53,8 @@
              </router-link>
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[17].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link>
            </div>
          </div>
@@ -76,8 +76,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[0].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -96,8 +96,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[18].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -120,8 +120,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[19].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -140,8 +140,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[1].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -164,8 +164,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[28].href">
+              <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -184,8 +184,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[29].href">
+            <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -208,8 +208,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[30].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link>
            </div>
          </div>
@@ -228,8 +228,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[2].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -252,8 +252,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[3].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -272,8 +272,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[4].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -296,8 +296,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[5].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -316,8 +316,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[6].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -340,8 +340,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[7].href">
+              <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -360,8 +360,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[8].href">
+              <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -384,8 +384,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[9].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -404,8 +404,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[10].href">
+              <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -428,8 +428,8 @@
              </router-link>
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[11].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -448,8 +448,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[12].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -472,8 +472,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[13].href">
+              <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -492,8 +492,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[14].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -516,8 +516,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[24].href">
+            <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -536,8 +536,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[25].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -560,8 +560,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[26].href">
+              <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -580,8 +580,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[27].href">
+             <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>
@@ -604,8 +604,8 @@
              </router-link >
            </div>
            <div style="width:40%;">
-             <router-link to="">
-             <img src="../assets/icon_shopbag.png" alt="" style="width:20px;margin-left:45px">
+             <router-link :to="list[15].href">
+            <p style="font-size:12px;background:#ffb7dd;width:50px;color:#666666" >立即购买</p>
              </router-link >
            </div>
          </div>

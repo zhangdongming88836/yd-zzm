@@ -15,7 +15,7 @@
       <div class="users">
          <div style="width:80%; ">
            <form>
-             <input type="text"   placeholder="账号"  class="users1" v-focus style="caret-color:#ffb7dd;margin-left:10px;" :disabled="!isAgree" >
+             <input type="text" v-model="add"  placeholder="账号"  class="users1" v-focus style="caret-color:#ffb7dd;margin-left:10px;" :disabled="!isAgree" >
             </form>
          </div>
          <div style="width:10%;">
@@ -26,7 +26,7 @@
          <div class="users">
          <div style="width:60%;">
            <form>
-             <input type="password" placeholder="密码"  class="users1"  style="caret-color:#ffb7dd;margin-left:10px;"  :disabled="!isAgree">
+             <input type="password" v-model="daa" placeholder="密码"  class="users1"  style="caret-color:#ffb7dd;margin-left:10px;"  :disabled="!isAgree">
            </form>
          </div>
          <div class="users2">
@@ -37,7 +37,7 @@
        </div>
         <!--登录-->
          <div class="enter">
-           <span style="color:#666666">同意协议并注册</span>
+           <span style="color:#666666" @click="login">同意协议并注册</span>
          </div>
        <!--登录结束-->
        <!--单选-->
@@ -59,12 +59,38 @@
 export default {
     data(){
         return{
-           isAgree:false,
+           isAgree:true,
+           add:"",
+           daa:"",
         }
     },
   methods:{
       back(){
           this.$router.go(-1)
+      },
+      login(){
+        var reg=/^[a-z,0-9]{3,12}$/i;
+        var u=this.add;
+        var p=this.daa;
+        console.log(u+"_"+p);
+        if(!reg.test(u)){
+           this.$messagebox("消息","用户名格式3~12位");
+           return;
+        }
+        if(!reg.test(p)){
+          this.$messagebox("消息","密码格式3~12位");
+          return;
+        }
+        var obj={uname:u,upwd:p};
+        this.axios.get("register",{params:obj}).then(res=>{
+          console.log(res);
+             if(res.data.code==1){
+                this.$toast("注册成功");
+                this.$router.go("-1");
+             }else{
+               this.$messagebox("消息","注册失败!")
+             }
+        })
       }
   }  
 }

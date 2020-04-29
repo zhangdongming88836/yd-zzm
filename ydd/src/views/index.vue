@@ -8,7 +8,7 @@
          <shop></shop>
        </mt-tab-container-item>
        <mt-tab-container-item id="tab3">
-         <cart></cart>
+        <cart></cart>
        </mt-tab-container-item>
         <mt-tab-container-item id="tab4">
          <mine></mine>
@@ -37,7 +37,7 @@
            :selectedImage="require('../assets/shop_car_2.png')"
            :normalImage="require('../assets/shop_1.png')"
          ></tabbaricon>
-         购物袋
+           购物袋
        </mt-tab-item>
        <mt-tab-item id="tab4" @click.native="changeState(3)">
             <tabbaricon
@@ -74,12 +74,15 @@ methods:{
     for(var i=0;i<size;i++ ){
       if(i==e){
         this.list[i].isSelect=true;
+         window.scrollTo(0, 0)
       }else{
          this.list[i].isSelect=false;
-      }
     }
-    
-  }
+            
+         
+    }
+  },
+  
 },
 beforeRouteEnter(to,from,next){
   console.log(`进入index`);
@@ -87,9 +90,14 @@ beforeRouteEnter(to,from,next){
 },
 beforeRouteLeave(to,from,next){
   console.log(`离开index`);
-  if(to.name=="Search"){
+ if(to.name=="Search"){
     to.meta.keepAlive=false;
   }
+  if(to.name=="details"){
+    from.meta.keepAlive=false
+  }
+  console.log(to);
+  console.log(from);
    next();
 },
 components:{first,shop,cart,mine,tabbaricon,}

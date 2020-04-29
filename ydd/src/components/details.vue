@@ -12,7 +12,7 @@
              </div>
                <div class="select2-2">
                  <div>
-                   <img :src="'http://127.0.0.1:4000/'+product.pic"  alt="" style="width:100px">
+                   <img :src="'http://127.0.0.1:4000/'+product.pic"  alt="" style="width:100px;height:88px;">
                  </div>
                  <div>
                    <p style="margin-top:20px;color:#ffb6c1">￥ {{product.price}}</p>
@@ -24,19 +24,19 @@
                    <p style="margin-left:20px;color:#aaaaaa;">选择数量</p>
                  </div>
                  <div class="select2-3-2">
-                   <div style="border:1px solid #dddddd;">
+                   <div style="border:1px solid #dddddd;" @click="vn(-1)"> 
                      <img src="../assets/delete_car_img.png" alt="" style="width:20px;position:relative;top:-4px;">
                    </div>
-                   <div style="border:1px solid #dddddd;width:40px">
-                     <span style="position:relative;left:12px;">1</span>        
+                   <div style="border:1px solid #dddddd;width:40px;text-align:center;">
+                     <span style="display:inline-block;text-align:center;width:40px;">{{count}}</span>        
                    </div>
-                   <div style="border:1px solid #dddddd;">
+                   <div style="border:1px solid #dddddd;" @click="vn(1)">
                      <img src="../assets/add_car_img.png" alt="" style="width:20px;position:relative;top:2px; ">
                    </div>
                  </div>
               </div>
               <div class="select2-3-3">
-                <div style="background:#dddddd;width:50%;display:flex;justify-content:center;height:30px;" @click="vb"> 
+                <div style="background:#dddddd;width:50%;display:flex;justify-content:center;height:30px;" @click="vb(product.tid,product.title,product.price,product.pic,count)"> 
                   <p style="line-height:30px;color:#aaaaaa;">加入购物车</p>
                 </div>
                 <div style="background:rgba(255,182,193,0.6); width:50%; display:flex;justify-content:center;height:30px;" @click="va">
@@ -64,7 +64,7 @@
     <div class="handover" :style="mc">
      <div class="details">
         <div style="width:100%;overflow:hidden; ">
-          <img :src="'http://127.0.0.1:4000/'+product.pic"  alt="图片" style="width:100%;"/>
+          <img :src="'http://127.0.0.1:4000/'+product.pic"  alt="图片" style="width:100%;height:327px;"/>
         </div>
         <div class="details1">
           <p style="margin-left:30px;">￥ {{product.price}}</p>
@@ -101,6 +101,7 @@
       <div class="foot2" @click="vd">
       <img src="../assets/shop_1.png" alt="" style="width:25px;">
       <p style="color:#aaaaaa;font-size:12px;">购物袋</p>
+      <p class="foot2-1" v-show="ddf">{{list.length}}</p>
       </div>
      </div>
      <div class="foot5">
@@ -125,6 +126,9 @@ export default {
       mz:"color:#ffb6c1",
       mn:"color:#aaaaaa",
       product:{},
+      count:0,
+      list:[],
+      ddf:false,
     }
   },
   created(){
@@ -133,8 +137,8 @@ export default {
       tid:this.tid
     }}).then(res=>{
        this.product= res.data.data[0]
-       console.log(this.product);
-    })
+    });
+    this.loadMore()
   },
     methods:{
         back(){
@@ -142,6 +146,7 @@ export default {
         },
         fa(){
           this.mnm=true;
+          this.count=0;
         },
         fb(){
           this.mnm=false;
@@ -149,35 +154,67 @@ export default {
         vd(){
           this.$router.push("/cart1")
         },
-        vb(){
-         this.mnm=false; 
-            this.$toast({
-        message:"加入购物袋成功",
-        position:"bottom"
-      })},
+        vn(e){
+          if(e==1){
+            this.count++
+          }else if(e==-1&&this.count>0){
+            this.count--
+          }
+        },
+        vb(gid,lname,price,pic,count){
+         if(count==0){
+           this.$toast("请选择数量")
+           return;
+         }
+         var url="cart1";
+         var obj={gid,lname,price,pic,count};
+         this.axios.get(url,{params:obj}).then(res=>{
+           if(res.data.code==-2){
+             this.$toast("请登录");
+             this.$router.push("/user");
+           }else{
+             this.$toast("添加成功");
+             this.count=0;
+             this.mnm=false;
+             this.loadMore();
+           }
+         })
+        },
          vc(gid,lname,price,pic){
-           console.log(1);
-           console.log(gid+"_"+lname+"_"+price+"_"+pic);
-
+          var count=1;
            //功能：将我们商品信息添加至购物车
            //1.创建变量url保存请求服务器地址
            var url="cart1";
            //2.创建变量obj请求数据 gid lname price pic
-           var obj={gid,lname,price,pic};
+           var obj={gid,lname,price,pic,count};
            //3.发送ajax请求
            this.axios.get(url,{params:obj}).then(res=>{
              if(res.data.code==-2){
                this.$toast("请登录");
                this.$router.push("/user");
              }else{
-               console.log(obj);
                this.$toast("添加成功")
+               this.loadMore();
              }
            })
            //4.接受服务器返回数据
            //5.判断code==-1提示请登录 跳转/登录页面
            //6.判断code==1 提示添加成功
         },
+            loadMore(){
+           this.axios.get("cart").then(res=>{
+        if(res.data.code==-2){
+           this.$toast("请登录");
+           this.$router.push("/user");
+        }else{
+          this.list=res.data.data;
+            if(this.list.length>0){
+             this.ffd=true;
+             this.ddf=true;
+           }
+        }
+      })
+        }, 
          fp(){
           this.mnm=true;
         },
@@ -204,17 +241,21 @@ export default {
           }
         }
     },
+
 beforeRouteEnter(to,from,next){
   console.log(`进入details`);
+        
+
    next();
- },  
-  beforeRouteLeave(to,from,next){
+ },     
+    beforeRouteLeave(to,from,next){
       console.log(`离开details`);
-    if(to.name=="Search"){
+    if(to.path=="/index"){
         to.meta.keepAlive=true;
+        
     }
     next();
-  },
+  },   
   props:["tid"]    
 }
 </script>
@@ -308,6 +349,18 @@ beforeRouteEnter(to,from,next){
   display: flex;
   flex-direction: column;
   align-items:center;
+  position: relative;
+}
+.foot2-1{
+  width: 20px;height: 20px;
+  background: rgba(255,182,193);
+  color: #fff;
+  font-size:1px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  position: absolute;
+  top:0px; left:52px;
 }
 .foot3,.foot4{
   line-height: 50px;

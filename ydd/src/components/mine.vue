@@ -16,14 +16,16 @@
        </div>
        <div class="mine2">
          <div style="width:20%;">
-           <img src="../assets/icon_love_collect_null.png" alt="" style="width:60px;margin-left:10px">
+           <img src="../assets/icon_love_collect_null.png" alt="" style="width:60px;margin-left:10px" v-if="add">
+           <img src="../assets/20185232085636261.jpg" alt="" style="width:60px;margin-left:10px" v-else>
          </div>
          <div style="width:80%;">
-           <router-link to="/user">
+           <router-link to="/user" v-if="add">
            <span style="line-height:60px;color:#808080;margin-left:15px">登录</span>
            <span style="line-height:60px;color:#808080">/</span>
            <span style="line-height:60px;color:#808080">注册</span>
            </router-link>
+           <span style="line-height:60px;color:#808080;margin-left:15px" v-else>{{muu}}</span>
          </div>
        </div>
      </div>
@@ -91,7 +93,22 @@
 </template>
 <script>
 export default {
- 
+ data(){
+   return{
+     add:false,
+     muu:"",
+   }
+ },
+  created(){
+    this.axios.get("mine").then(res=>{
+      this.muu=res.data.data
+      if(!this.muu){
+        this.add=true
+      }else{
+        this.add=false;
+      }
+    })
+  },
 }
 </script>
 <style scoped>

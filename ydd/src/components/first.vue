@@ -700,7 +700,6 @@ export default {
 }
 .bulb1,.bulb2,.bulb3{
   width:100%;
-  border:1px solid #f00;
 }
 .bulb1{
   margin-top:94px;

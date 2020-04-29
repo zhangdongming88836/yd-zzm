@@ -49,13 +49,18 @@
          </div>
        </div>
        <!--登录密码结束-->
+        <!--登录-->
+         <div class="enter" @click="login">
+           <span style="color:#fff">登录</span>
+         </div>
+       <!--登录结束-->
        </div>
              <!--快速登录-->
          <div v-else>
        <div class="users">
          <div style="width:80%; ">
            <form>
-             <input type="text" v-model="aab"  placeholder="手机号码"  class="users1" v-focus style="caret-color:#ffb7dd;margin-left:10px;"  >
+             <input type="text" v-model="aab"  placeholder="手机号码" disabled class="users1" v-focus style="caret-color:#ffb7dd;margin-left:10px;"  >
             </form>
          </div>
          <div style="width:10%;">
@@ -67,23 +72,23 @@
          <div class="users">
          <div style="width:60%;">
            <form>
-             <input type="password" placeholder="短信验证码"  class="users1"  style="caret-color:#ffb7dd;margin-left:10px;" v-if="fa" v-model="eec" >
+             <input type="password" placeholder="短信验证码" disabled  class="users1"  style="caret-color:#ffb7dd;margin-left:10px;" v-if="fa" v-model="eec" >
            </form>
          </div>
          <div class="users2">
-           <div class="note">
+           <div class="note" @click="verification">
              <span style="color:#fff;font-size:8px;">获取验证码</span>
            </div>
          </div>
        </div>
        <!--登录密码结束-->
-       </div>
-       <!--快速登录结束--> 
-       <!--登录-->
-         <div class="enter" @click="login">
+        <!--登录-->
+         <div class="enter" >
            <span style="color:#fff">登录</span>
          </div>
        <!--登录结束-->
+       </div>
+       <!--快速登录结束-->
        <!--注册-->
         <div class="login">
           <div>
@@ -123,6 +128,9 @@ export default {
     }
   },
   methods:{
+    verification(){
+      this.$toast("请输入手机号");
+    },
     back(){
         this.$router.go(-1);
     },
@@ -152,12 +160,12 @@ export default {
        console.log(u+"_"+p);
        //3：验证用户名如果格式不正确，提示错误信息
        if(!reg.test(u)){
-         this.$messagebox("消息","用户名格式3-12位");
+         this.$messagebox("消息","用户名格式3-12位字母数字");
          return;//停止程序运行
        }
       // 4：验证用户密码如果格式不正确，提示错误信息
       if(!reg.test(p)){
-        this.$messagebox("消息","密码格式3-12位");
+        this.$messagebox("消息","密码格式3-12位字母数字");
         return;//停止程序运行
       }
       console.log(3);
@@ -170,6 +178,7 @@ export default {
          // 8：接受服务器返回结果
          // 9：如果-1 提示用户名和密码有误
         // 10：如果1 跳转商品列表地
+        console.log(res.data);
        if(res.data.code==-1){
          this.$messagebox("消息","用户名或密码有误");
        }else{
@@ -307,4 +316,7 @@ export default {
   justify-content: center;
   margin:10px auto;
 }
+ input:disabled{
+     background:transparent;
+ }
 </style>
