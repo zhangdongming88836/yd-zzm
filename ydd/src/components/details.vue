@@ -1,5 +1,24 @@
 <template>
    <div style="position:relative;">
+       <!--聊天-->
+        <div class="chat" v-show="yy">
+          <div class="chat1">
+             <div style="width:85%"></div>
+             <div style="width:15%">
+               <img src="../assets/crop__ic_cancel.png" alt="" @click="oop">
+             </div>
+          </div>
+          <div class="chat2">
+             <div v-for="(item,i) of mnb" :key="i" style="width:100%;" >{{item}}</div>
+         </div>
+          <div class="chat3">
+            <input contenteditable="true" class="chat3-1" v-model="nbm">
+          </div>
+          <div class="chat4">
+            <div class="chat4-1"></div>
+            <button class="chat4-2" @click="mmn">发送</button>
+          </div>
+        </div>
        <!--数量div-->
           <div class="select" v-show="mnm">
            <div class="select1"></div>
@@ -94,14 +113,14 @@
     <!--底部-->
     <div class="foot">
     <div class="foot5">
-     <div class="foot1" >
+     <div class="foot1" @click="poo">
       <img src="../assets/icon_kefu_new.png" alt="" style="width:25px;">
       <p style="color:#aaaaaa;font-size:12px;">客服</p>
        </div>
       <div class="foot2" @click="vd">
       <img src="../assets/shop_1.png" alt="" style="width:25px;">
       <p style="color:#aaaaaa;font-size:12px;">购物袋</p>
-      <p class="foot2-1" v-show="ddf">{{list.length}}</p>
+      <p class="foot2-1" v-show="ddf">{{$store.getters.getCart}}</p>
       </div>
      </div>
      <div class="foot5">
@@ -129,6 +148,9 @@ export default {
       count:0,
       list:[],
       ddf:false,
+      yy:false,
+      mnb:[],
+      nbm:"",
     }
   },
   created(){
@@ -141,6 +163,31 @@ export default {
     this.loadMore()
   },
     methods:{
+      oop(){
+        this.yy=false;
+      },
+      poo(){
+        this.yy=true;
+         var client=io("ws://127.0.0.1:9001");
+          //2.绑定enter新人来了
+             client.on("enter",(data)=>{
+               this.mnb.push(data);
+             })
+       },
+      mmn(){
+        //链接ws服务器 
+         var client=io("ws://127.0.0.1:9001");
+         if(!this.nbm){
+           this.$messagebox("消息","请输入内容");
+           return;
+         }
+           client.emit("abc",this.nbm);
+           this.mnb.push(this.nbm);
+           this.nbm=""
+               client.on("bcd",(data)=>{
+               this.mnb.push(data);
+             })
+      },
         back(){
             this.$router.go(-1)
         },
@@ -201,13 +248,17 @@ export default {
            //5.判断code==-1提示请登录 跳转/登录页面
            //6.判断code==1 提示添加成功
         },
-            loadMore(){
+           loadMore(){
            this.axios.get("cart").then(res=>{
         if(res.data.code==-2){
            this.$toast("请登录");
            this.$router.push("/user");
+           return;
         }else{
           this.list=res.data.data;
+          this.$store.commit("addmList",this.list);
+          //全局数据购物车数量
+          this.$store.commit("addmCart",this.list.length);
             if(this.list.length>0){
              this.ffd=true;
              this.ddf=true;
@@ -252,7 +303,9 @@ beforeRouteEnter(to,from,next){
       console.log(`离开details`);
     if(to.path=="/index"){
         to.meta.keepAlive=true;
-        
+    }
+    if(to.path=="/Search"){
+      to.meta.keepAlive=true;
     }
     next();
   },   
@@ -441,4 +494,46 @@ beforeRouteEnter(to,from,next){
   overflow: hidden;
 }
 /*切换结束 */
+/*聊天 */
+.chat{
+  position: absolute;
+  left:0px;top:0px;
+  z-index: 5;
+  width: 100%;
+  height: 667px;
+  background:rgba(248,248,255,0.9);
+}
+.chat1{
+  margin-top:20px;
+  display: flex;
+}
+.chat2{
+  overflow:auto;
+  width: 100%;
+  height:75%;
+  border: 1px solid #808080;
+}
+.chat3{
+  width: 100%;
+  height:10%;
+}
+.chat3-1{
+   overflow:auto;
+  width: 100%;
+  height:100%;
+  border:1px solid #708090;
+  color: #0066FF;
+}
+.chat4{
+  display: flex;
+  justify-content:space-around;
+}
+.chat4-1{
+  width: 80%;
+}
+.chat4-2{
+  width: 15%;
+  background:#0066FF;
+  color: #fff;
+}
 </style>

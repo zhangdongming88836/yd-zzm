@@ -4,6 +4,8 @@ const express=require("express");
 const mysql=require("mysql");
 const session=require("express-session");
 const cors =require("cors");
+var ser=require("http").createServer();
+const  io=require("socket.io")(ser);
 //2.创建连接池
 var pool=mysql.createPool({
     host:"127.0.0.1",
@@ -17,6 +19,7 @@ var pool=mysql.createPool({
 var server=express();
 //7.为服务器绑定监听端口
 server.listen(4000);
+ser.listen(9001);
 console.log("服务器启动.......");
 //4.配置跨域模块
 server.use(cors({
@@ -38,6 +41,21 @@ server.use(session({
    resave:true,
    saveUninitialized:true,
 }));
+//socket聊天框
+console.log("服务器启动端口4000");
+io.on("connection",(socket)=>{
+  socket.emit("enter","欢迎亲的到来");
+   socket.on("abc",(data)=>{
+       console.log(data);
+       socket.emit("bcd","很高兴见到您");
+   })
+     //io.emit("list",socket.id+"say:"+data);
+})
+  //下线了的广播
+  /*socket.on("disconnect",(data)=>{
+      io.emit("leave",socket.id+"leave");
+  })*/
+
 //功能一：用户登录验证
 server.get("/user",(req,res)=>{
     //1获取脚手架传递用户名和密码

@@ -14,7 +14,7 @@
     <!--顶部结束-->
       <div style="height:50px"></div>
       <!--购物袋列表-->
-        <div class="cartItem" v-for="(item, i) of list" :key="i">
+        <div class="cartItem" v-for="(item, i) of $store.getters.getList" :key="i">
           <div class="cartItem1">
             <input type="checkbox" v-model="item.cb" @change="changeItem">
           </div>
@@ -47,7 +47,7 @@
           <p>删除选中</p>
         </div>
         <div>
-          <p>总计:￥ {{cont}}</p>
+          <p>总计:￥ {{$store.getters.getCount}}</p>
         </div>
         <div class="base4">
           <p>结算</p>
@@ -160,13 +160,19 @@ export default {
         }else{
           console.log(res.data.data);
           //this.list=res.data.data;
+          //获取全局数据购物车
           var rows=res.data.data;
+          this.$store.commit("addmList",rows);
           this.cont=0
           for(var item of rows){
             item.cb=false;
-            this.cont+=parseInt(item.price)
+          this.cont+=parseInt(item.price*item.count)
           }
+         //获取全局总价
+          this.$store.commit("addmCount",this.cont);
           this.list=rows;
+             //全局数据购物车数量
+          this.$store.commit("addmCart",this.list.length);
             if(this.list.length>0){
              this.ffd=true;
            }else{

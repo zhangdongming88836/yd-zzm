@@ -7,7 +7,7 @@
      <!--顶部-->
        <div style="height:50px"></div>
       <!--购物袋列表-->
-        <div class="cartItem" v-for="(item, i) of list" :key="i">
+        <div class="cartItem" v-for="(item, i) of $store.getters.getList" :key="i">
           <div class="cartItem1">
             <input type="checkbox" v-model="item.cb" @change="changeItem">
           </div>
@@ -40,12 +40,12 @@
           <p>删除选中</p>
         </div>
         <div>
-          <p>总计:￥ {{mont}}</p>
+          <p>总计:￥ {{$store.getters.getCount}}</p>
         </div>
         <div class="base4">
           <p>结算</p>
         </div>
-        <p class="foot2-1">{{list.length}}</p>
+        <p class="foot2-1">{{$store.getters.getCart}}</p>
       </div>
       <!--底部结束-->
     </div>
@@ -57,7 +57,7 @@ export default {
       list:[{pic:""}],
       ffd:false,
       allcb:false,
-      mont:0,
+      cont:0,
     }
   },
     created(){
@@ -173,13 +173,19 @@ export default {
            this.axios.get("cart").then(res=>{
            //this.list=res.data.data;
            var rows=res.data.data;
-            this.mont=0
+            //获取全局数据购物车
+            this.$store.commit("addmList",rows);
+            this.cont=0
             for(var item of rows ){
               item.cb=false;
-              this.mont+=parseInt(item.price);
-            }
+              
+             this.cont+=parseInt(item.price*item.count);
+             }
+             this.$store.commit("addmCount",this.cont);
             console.log(rows);
             this.list=rows;
+            //修改购物车全局数据数量
+            this.$store.commit("addmCart",this.list.length);
            if(this.list.length>0){
              this.ffd=true;
            }else{

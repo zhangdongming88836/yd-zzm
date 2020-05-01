@@ -10,7 +10,7 @@
        <div class="right-head1">
          <p style="width:100px">商铺</p>
        </div>
-       <div class="right-head2">
+       <div class="right-head2" @click="nno">
       <img src="../assets/icon_share_new.png" alt="" style="width:25px; margin-left:15px;"> 
      </div>
     </div>
@@ -631,6 +631,9 @@ export default {
       this.loadMore();
     },
     methods:{
+      nno(){
+        this.$toast("正在完善中")
+      },
       loadMore(){
         //功能：发送ajax请求获取服务器返回商品列表
         //并且把数据保存data list:[]

@@ -7,22 +7,22 @@
        <div class="right-head1">
          <img src="../assets/zhengzhumeixuelong1.png" alt="" style="width:100px">
        </div>
-       <div class="right-head2">
+       <div class="right-head2" @click="zxc">
       <img src="../assets/icon_message_new.png" alt="" style="width:25px; margin-left:15px;"> 
      </div>
     </div>
     <!--扫码的div-->
     <div class="scan" v-show="scan" >
       <div class="scan1">
-      <div class="scan2">
+      <div class="scan2" @click="qws">
         <img src="../assets/fangweichaxun.png" alt="" style="width:80px">
         <p style="color:#999999;">防伪查询</p>
       </div>
-      <div class="scan2">
+      <div class="scan2" @click="qwa">
          <img src="../assets/huoquanzhuanyi.png" alt="" style="width:80px">
         <p style="color:#999999;">货权转移</p>
       </div>
-      <div class="scan2">
+      <div class="scan2" @click="qwd">
          <img src="../assets/dailichaxun_icon.png" alt="" style="width:80px">
         <p style="color:#999999;">代理查询</p>
       </div>
@@ -43,7 +43,7 @@
           <p style="color:#666666; font-size:12px">关于真珠</p>
         </router-link>
       </div>
-      <div>
+      <div @click="zxc">
          <router-link to="">
           <img src="../assets/new_zhenzhusucai.png" alt="" style="width:50px">
           <p  style="color:#666666; font-size:12px">真珠素材</p>
@@ -597,6 +597,18 @@ export default {
       this.loadMore();
     },
    methods:{
+     zxc(){
+       this.$toast("功能正在完善中")
+     },
+     qws(){
+       this.$toast("建设中，敬请期待")
+     },
+     qwa(){
+       this.$toast("建设中，敬请期待")
+     },
+     qwd(){
+       this.$toast("建设中，敬请期待")
+     },
     fa(){
       this.scan=true;
     },

@@ -2,13 +2,13 @@
    <div>
      <div class="mine">
        <table></table>
-       <div class="mine1">
-         <div style="width:50%">
+       <div class="mine1" >
+         <div style="width:50%" @click="qwg">
            <router-link to="">
            <img src="../assets/nav_icon_set.png" alt="" style="width:30px;margin-left:10px;">
            </router-link>
          </div>
-         <div style="width:50%">
+         <div style="width:50%" @click="qwg">
            <router-link to="">
            <img src="../assets/nav_icon_message.png" alt="" style="width:30px;margin-left:145px;">
            </router-link>
@@ -30,7 +30,7 @@
        </div>
      </div>
      <!--全部订单-->
-     <div class="orderForm">
+     <div class="orderForm" @click="qws">
        <div class="orderForm1">
          <img src="../assets/icon_allorder.png" alt="" style="width:40px;margin-top:25px;">
          <p style="font-size:12px;color:#808080">全部订单</p>
@@ -56,7 +56,7 @@
      </div>
      <!--全部订单结束-->
      <!--个人钱包-->
-      <div class="wallet">
+      <div class="wallet" @click="qwa">
        <div class="wallet1">
          <img src="../assets/qianbao2.png" alt="" style="width:30px;height:25px; margin-left:14px;">
          <p style="font-size:16px; margin-left:10px; color:#808080">个人钱包</p>
@@ -67,7 +67,7 @@
      </div>
      <!--个人钱包结束-->
      <!--我的收藏-->
-        <div class="wallet">
+        <div class="wallet" @click="qwd">
        <div class="wallet1">
          <img src="../assets/icon_collect_un.png" alt="" style="width:30px;height:25px; margin-left:14px;">
          <p style="font-size:16px; margin-left:10px; color:#808080">我的收藏</p>
@@ -80,7 +80,7 @@
      <hr style="border-top:1px solid #f5f5f5;margin-top:10px;"> 
      <!--联系客服-->
         <div class="wallet">
-       <div class="wallet1">
+       <div class="wallet1" @click="qwf">
          <img src="../assets/kefu_user.png" alt="" style="width:30px;height:25px; margin-left:14px;">
          <p style="font-size:16px; margin-left:10px; color:#808080">联系客服</p>
        </div>
@@ -108,6 +108,23 @@ export default {
         this.add=false;
       }
     })
+  },
+  methods:{
+    qws(){
+      this.$toast("功能正在完善中")
+    },
+    qwa(){
+      this.$toast("功能正在完善中")
+    },
+    qwd(){
+      this.$toast("功能正在完善中")
+    },
+    qwf(){
+      this.$toast("功能正在完善中")
+    },
+    qwg(){
+      this.$toast("功能正在完善中")
+    },
   },
 }
 </script>

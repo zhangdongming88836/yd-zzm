@@ -15,7 +15,7 @@
       <div class="users">
          <div style="width:80%; ">
            <form>
-             <input type="text"   placeholder="手机号码"  class="users1" v-focus style="caret-color:#ffb7dd;margin-left:10px;"  >
+             <input type="text"   placeholder="手机号码"   class="users1" v-focus style="caret-color:#ffb7dd;margin-left:10px;"  >
             </form>
          </div>
          <div style="width:10%;">
@@ -31,13 +31,13 @@
          </div>
          <div class="users2">
            <div class="note">
-             <span style="color:#fff;font-size:8px;">获取验证码</span>
+             <span style="color:#fff;font-size:8px;" @click="lo">获取验证码</span>
            </div>
          </div>
        </div>
         <!--登录-->
          <div class="enter">
-           <span style="color:#fff">下一步</span>
+           <span style="color:#fff" @click="ol">下一步</span>
          </div>
        <!--登录结束-->
 </div>
@@ -45,6 +45,12 @@
 <script>
 export default {
     methods:{
+      lo(){
+        this.$toast("正在建设，敬请期待")
+      },
+      ol(){
+         this.$toast("正在建设，敬请期待")
+      },
         back(){
             this.$router.go(-1)
         }
